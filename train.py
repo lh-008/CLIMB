@@ -133,7 +133,7 @@ def main(cfg: BabyLMConfig):
     else:
         # These environment variables get picked up by Trainer
         os.environ["WANDB_PROJECT"] = cfg.experiment.group
-        os.environ["WANDB_ENTITY"] = "baby-lm"
+        os.environ["WANDB_ENTITY"] = "babylm-climb"
         wandb.config = OmegaConf.to_container(
             cfg, resolve=True, throw_on_missing=True
         )
