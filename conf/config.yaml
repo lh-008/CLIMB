@@ -15,7 +15,7 @@ model:
 
 experiment: 
   seed: 42 
-  group: "babylm-climb"
+  group: "lemn-lab"
   name: "climb-replication"
 
 data_preprocessing:
