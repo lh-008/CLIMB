@@ -32,5 +32,5 @@ trainer:
   eval_blimp: False
   eval_glue: False
   eval_msgs: False
-  eval_perplexity: True
+  eval_perplexity: False
 
