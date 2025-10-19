@@ -250,7 +250,7 @@ def main(cfg: BabyLMConfig):
         is not None,  # NOTE: This is to ensure that the curriculum is not broken on the last batch
         remove_unused_columns=False,
         load_best_model_at_end=True,
-        metric_for_best_model="perplexity",
+        metric_for_best_model="eval_perplexity_mean",
         greater_is_better=False,  # smaller perplexity is better
         ddp_find_unused_parameters=False,
         ddp_timeout=28800,  # 8 hours (default is 30 minutes)
@@ -269,7 +269,8 @@ def main(cfg: BabyLMConfig):
     )
 
     if not cfg.experiment.resume_checkpoint_path:
-        trainer.evaluate()  # Initial model evaluation
+        metrics = trainer.evaluate()  # Initial model evaluation
+        print(metrics.keys())
     trainer.train(resume_from_checkpoint=cfg.experiment.resume_checkpoint_path)
 
     # Always evaluate the best model at the end of training, on every metric.
