@@ -236,13 +236,16 @@ def main(cfg: BabyLMConfig):
         else None,  # wandb deactivated for offline runs
         save_strategy="steps",
         hub_strategy="every_save",
-        push_to_hub=not cfg.experiment.offline_run,
-        hub_model_id=f"cambridge-climb/{cfg.experiment.group}-{cfg.model.name}-model"
-        if not cfg.experiment.offline_run
-        else None,
-        hub_token=os.environ["HF_WRITE_TOKEN"]
-        if not cfg.experiment.offline_run
-        else None,
+        # push_to_hub=not cfg.experiment.offline_run,
+        push_to_hub=False,
+        # hub_model_id=f"cambridge-climb/{cfg.experiment.group}-{cfg.model.name}-model"
+        # if not cfg.experiment.offline_run
+        # else None,
+        hub_model_id=None,
+        # hub_token=os.environ["HF_WRITE_TOKEN"]
+        # if not cfg.experiment.offline_run
+        # else None,
+        hub_token=None,
         dataloader_drop_last=cfg.data_curriculum
         is not None,  # NOTE: This is to ensure that the curriculum is not broken on the last batch
         remove_unused_columns=False,
