@@ -270,7 +270,7 @@ def main(cfg: BabyLMConfig):
 
     if not cfg.experiment.resume_checkpoint_path:
         metrics = trainer.evaluate()  # Initial model evaluation
-        print(metrics.keys())
+        print("METRIC KEYS: ", metrics.keys())
     trainer.train(resume_from_checkpoint=cfg.experiment.resume_checkpoint_path)
 
     # Always evaluate the best model at the end of training, on every metric.
