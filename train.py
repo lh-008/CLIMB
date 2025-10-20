@@ -268,9 +268,9 @@ def main(cfg: BabyLMConfig):
         curriculum_learning_table=curriculum_learning_table,
     )
 
-    if not cfg.experiment.resume_checkpoint_path:
-        metrics = trainer.evaluate()  # Initial model evaluation
-        print("METRIC KEYS: ", metrics.keys())
+    # if not cfg.experiment.resume_checkpoint_path:
+    #     metrics = trainer.evaluate()  # Initial model evaluation
+    #     print("METRIC KEYS: ", metrics.keys())
     trainer.train(resume_from_checkpoint=cfg.experiment.resume_checkpoint_path)
 
     # Always evaluate the best model at the end of training, on every metric.
