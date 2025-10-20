@@ -671,7 +671,7 @@ class CustomTrainer(Trainer):
 
                 inference_dataloader = DataLoader(
                     eval_subset,  # type: ignore
-                    batch_size=4,
+                    batch_size=2,
                     shuffle=False,
                     collate_fn=base_collate_fn,
                     pin_memory=True,
