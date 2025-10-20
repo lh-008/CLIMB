@@ -25,7 +25,7 @@ data_preprocessing:
   max_input_length: 128
 
 trainer: 
-  batch_size: 16 # across 4 GPUs gives an effective batch size of 128
+  batch_size: 8 # across 4 GPUs gives an effective batch size of 128
   lr: 1e-3 # 1e-4 is used in fairseq; 1e-3 is default in huggingface
   num_warmup_steps: 10_000
   max_training_steps: 40_000
